@@ -1,4 +1,4 @@
-package Proiect_PS.Controller;
+package Proiect_PS.DTO;
 
 import Proiect_PS.Model.Role;
 

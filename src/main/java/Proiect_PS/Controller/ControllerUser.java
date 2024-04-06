@@ -1,7 +1,15 @@
 package Proiect_PS.Controller;
 
+import Proiect_PS.DTO.UserData;
+import Proiect_PS.DTO.UserPasswordData;
+import Proiect_PS.DTO.UserUsernameData;
+import Proiect_PS.Model.User;
 import Proiect_PS.Service.ServiceUser;
+import Proiect_PS.Service.ServiceUserInterface;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
 /**
  * The ControllerUser class manages HTTP operations related to users.
  * This class acts as a controller within the Spring Boot architecture, handling
@@ -10,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/user")
 public class ControllerUser {
-    private ServiceUser serviceUser;
+    private ServiceUserInterface serviceUser;
     /**
      * Constructs a ControllerUser.
      * Initializes the controller with a specific user service.
@@ -38,8 +46,8 @@ public class ControllerUser {
      * @param userData The user data used for the search.
      */
     @GetMapping("/findUser")
-    public void findByUser(@RequestBody UserData userData){
-        this.serviceUser.findUser(userData);
+    public User findByUser(@RequestBody UserUsernameData userData){
+        return this.serviceUser.findUserByUsername(userData);
     }
     /**
      * Deletes a user from the system.
@@ -48,8 +56,8 @@ public class ControllerUser {
      * @param userData The data of the user to be deleted.
      */
     @DeleteMapping ("/delete")
-    public void deleteUser(@RequestBody UserData userData){
-        this.serviceUser.deleteUser(userData);
+    public User deleteUser(@RequestBody UserUsernameData userData){
+        return this.serviceUser.deleteUser(userData);
     }
     /**
      * Updates an existing user's data.
@@ -60,5 +68,15 @@ public class ControllerUser {
     @PutMapping ("/update")
     public void updateUser(@RequestBody UserData userData){
         this.serviceUser.updateUser(userData);
+    }
+
+    @GetMapping("/findAll")
+        public List<User> findAllUser(){
+            return this.serviceUser.findAll();
+        }
+
+    @PutMapping ("/updatePassword")
+    public void updatePasswordUser(@RequestBody UserPasswordData userData){
+        this.serviceUser.updatePassword(userData);
     }
 }
