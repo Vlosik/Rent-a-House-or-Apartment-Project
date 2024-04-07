@@ -69,12 +69,26 @@ public class ControllerUser {
     public void updateUser(@RequestBody UserData userData){
         this.serviceUser.updateUser(userData);
     }
-
+    /**
+     * Returnează o listă cu toți utilizatorii din sistem.
+     * Această metodă utilizează metoda HTTP GET pentru a recupera și returna o listă
+     * a tuturor utilizatorilor înregistrați în sistem, oferind o vedere de ansamblu completă.
+     *
+     * @return Lista de obiecte {@link User} care reprezintă toți utilizatorii înregistrați.
+     */
     @GetMapping("/findAll")
     public List<User> findAllUser(){
             return this.serviceUser.findAll();
         }
-
+    /**
+     * Actualizează parola unui utilizator.
+     * Prin metoda HTTP PUT, această metodă permite schimbarea parolei unui utilizator.
+     * Datele necesare includ numele de utilizator și parola nouă, encapsulate în {@code UserPasswordData}.
+     *
+     * @param userData Datele necesare pentru actualizarea parolei, incluzând numele de utilizator
+     *                 și noua parolă. Numele de utilizator este folosit pentru a identifica utilizatorul
+     *                 căruia i se va schimba parola.
+     */
     @PutMapping ("/updatePassword")
     public void updatePasswordUser(@RequestBody UserPasswordData userData){
         this.serviceUser.updatePassword(userData);

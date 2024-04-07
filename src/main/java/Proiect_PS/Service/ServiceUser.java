@@ -10,18 +10,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * The ServiceUser class provides user management services such as insertion, deletion,
- * updating, and finding users in the system. It interacts with the {@link ReposityUser} to
- * perform operations on the database.
+ * Clasa ServiceUser oferă servicii de gestionare a utilizatorilor, cum ar fi inserția, ștergerea,
+ * actualizarea și căutarea utilizatorilor în sistem. Interacționează cu RepositoryUser pentru
+ * a efectua operațiuni pe baza de date și gestionează integrarea utilizatorilor cu sistemul de notificări.
  */
 @Service
 public class ServiceUser implements ServiceUserInterface{
     private RepositoryUser repositoryUser;
     private ServiceRental serviceRental;
     /**
-     * Constructs a ServiceUser with a given user repository.
+     * Constructorul clasei ServiceUser.
      *
-     * @param repositoryUser The user repository used for database operations.
+     * @param repositoryUser Repository-ul utilizat pentru operațiunile pe baza de date.
+     * @param serviceRental Serviciul de închiriere pentru gestionarea notificărilor.
      */
     public ServiceUser(RepositoryUser repositoryUser,ServiceRental serviceRental){
         this.repositoryUser = repositoryUser;
@@ -85,12 +86,20 @@ public class ServiceUser implements ServiceUserInterface{
             return null;
         }
     }
-
+    /**
+     * Returnează toți utilizatorii din sistem.
+     *
+     * @return Lista tuturor utilizatorilor.
+     */
     @Override
     public List<User> findAll() {
         return repositoryUser.findAll();
     }
-
+    /**
+     * Actualizează parola unui utilizator.
+     *
+     * @param userPasswordData Datele utilizatorului pentru actualizarea parolei.
+     */
     @Override
     public void updatePassword(UserPasswordData userPasswordData) {
         User user = repositoryUser.findByUsername(userPasswordData.getUsername());
