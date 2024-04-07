@@ -15,7 +15,7 @@ public class Property {
     @JoinColumn(name = "admin_id")
     private User admin;
 
-    @Column(nullable = false)
+    @Column(unique = true,nullable = false)
     private String title;
 
     @Column(columnDefinition = "TEXT")
@@ -37,9 +37,81 @@ public class Property {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
-}
+    @PrePersist
+    protected void onCreate() {
+        createdAt = new Date();
+    }
 
-enum PropertyType {
-    APARTMENT, HOUSE
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public User getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(User admin) {
+        this.admin = admin;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Boolean getAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
+    }
+
+    public PropertyType getType() {
+        return type;
+    }
+
+    public void setType(PropertyType type) {
+        this.type = type;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
 }
 

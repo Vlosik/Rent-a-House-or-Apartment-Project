@@ -26,7 +26,7 @@ public class Rental {
     @Temporal(TemporalType.DATE)
     private Date endDate;
 
-    @Column(name = "created_at")
+    @Column(unique = true,name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
