@@ -71,7 +71,7 @@ public class ControllerUser {
     }
 
     @GetMapping("/findAll")
-        public List<User> findAllUser(){
+    public List<User> findAllUser(){
             return this.serviceUser.findAll();
         }
 

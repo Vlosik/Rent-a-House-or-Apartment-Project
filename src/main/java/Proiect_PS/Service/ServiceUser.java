@@ -17,13 +17,15 @@ import java.util.List;
 @Service
 public class ServiceUser implements ServiceUserInterface{
     private RepositoryUser repositoryUser;
+    private ServiceRental serviceRental;
     /**
      * Constructs a ServiceUser with a given user repository.
      *
      * @param repositoryUser The user repository used for database operations.
      */
-    public ServiceUser(RepositoryUser repositoryUser){
+    public ServiceUser(RepositoryUser repositoryUser,ServiceRental serviceRental){
         this.repositoryUser = repositoryUser;
+        this.serviceRental = serviceRental;
     }
     /**
      * Inserts a new user into the system based on the given user data.
@@ -38,6 +40,7 @@ public class ServiceUser implements ServiceUserInterface{
         user.setPassword(userData.getPassword());
         user.setEmail(userData.getEmail());
         user.setRole(userData.getRole());
+        serviceRental.addObserver(user);
         repositoryUser.save(user);
     }
     /**
@@ -49,6 +52,7 @@ public class ServiceUser implements ServiceUserInterface{
     public User deleteUser(UserUsernameData userData){
         User user = repositoryUser.findByUsername(userData.getUsername());
         repositoryUser.delete(user);
+        serviceRental.removeObserver(user);
         return user;
     }
     /**

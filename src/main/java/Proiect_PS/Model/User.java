@@ -1,11 +1,13 @@
 package Proiect_PS.Model;
 
+import Proiect_PS.ObserverPattern.Observer;
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Observer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,6 +31,19 @@ public class User {
     @PrePersist
     protected void onCreate() {
         createdAt = new Date();
+    }
+
+    @Override
+    public void update(String message) {
+        System.out.println(this.username + ":" + message);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(username, user.username);
     }
 
     public String getUsername() {
