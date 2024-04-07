@@ -12,7 +12,7 @@ public interface ServicePropertyInterface {
     void insertProperty(PropertyData propertyData);
 
     void deleteProperty(PropertyTitleData propertyData);
-    void updateUser(PropertyData propertyData);
+    void updateProperty(PropertyData propertyData);
     List<Property> findByTitlePriceAndLocation(PropertyTrioData propertyTrioData);
     List<Property> findAll();
     Property findByTitle(String title);

@@ -37,7 +37,7 @@ public class ServiceProperty implements ServicePropertyInterface {
     }
 
     @Override
-    public void updateUser(PropertyData propertyData) {
+    public void updateProperty(PropertyData propertyData) {
         Property property = this.findByTitle(propertyData.getTitle());
         property.setDescription(propertyData.getDescription());
         property.setAvailable(propertyData.getFree());

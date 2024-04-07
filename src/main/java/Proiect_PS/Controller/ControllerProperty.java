@@ -22,19 +22,19 @@ public class ControllerProperty {
     }
 
     @PostMapping("/insert")
-    public void addUser(@RequestBody PropertyData propertyData){
+    public void addProperty(@RequestBody PropertyData propertyData){
         this.serviceProperty.insertProperty(propertyData);
     }
 
 
     @DeleteMapping ("/delete")
-    public void deleteUser(@RequestBody PropertyTitleData propertyTitleData){
+    public void deleteProperty(@RequestBody PropertyTitleData propertyTitleData){
         this.serviceProperty.deleteProperty(propertyTitleData);
     }
 
     @PutMapping ("/update")
-    public void updateUser(@RequestBody PropertyData propertyData){
-        this.serviceProperty.updateUser(propertyData);
+    public void updateProperty(@RequestBody PropertyData propertyData){
+        this.serviceProperty.updateProperty(propertyData);
     }
 
     @GetMapping("/findByTitlePriceAndLocation")
