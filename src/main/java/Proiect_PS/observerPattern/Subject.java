@@ -1,4 +1,4 @@
-package Proiect_PS.ObserverPattern;
+package Proiect_PS.observerPattern;
 
 public interface Subject {
     void addObserver(Observer o);

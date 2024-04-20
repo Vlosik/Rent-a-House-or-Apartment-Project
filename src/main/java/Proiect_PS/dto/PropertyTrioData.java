@@ -1,6 +1,4 @@
-package Proiect_PS.DTO;
-
-import Proiect_PS.Model.PropertyType;
+package Proiect_PS.dto;
 
 import java.math.BigDecimal;
 

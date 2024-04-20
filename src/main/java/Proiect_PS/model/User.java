@@ -1,6 +1,6 @@
-package Proiect_PS.Model;
+package Proiect_PS.model;
 
-import Proiect_PS.ObserverPattern.Observer;
+import Proiect_PS.observerPattern.Observer;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.Objects;

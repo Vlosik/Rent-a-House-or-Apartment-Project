@@ -1,13 +1,9 @@
-package Proiect_PS.Controller;
+package Proiect_PS.controller;
 
-import Proiect_PS.DTO.*;
-import Proiect_PS.Model.Property;
-import Proiect_PS.Model.User;
-import Proiect_PS.Service.ServiceProperty;
-import Proiect_PS.Service.ServicePropertyInterface;
-import Proiect_PS.Service.ServiceUser;
-import Proiect_PS.Service.ServiceUserInterface;
-import org.springframework.beans.factory.annotation.Autowired;
+import Proiect_PS.dto.*;
+import Proiect_PS.model.Property;
+import Proiect_PS.service.ServiceProperty;
+import Proiect_PS.service.ServicePropertyInterface;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

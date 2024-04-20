@@ -1,12 +1,11 @@
-package Proiect_PS.Service;
+package Proiect_PS.service;
 
-import Proiect_PS.DTO.PropertyData;
-import Proiect_PS.DTO.PropertyTitleData;
-import Proiect_PS.DTO.PropertyTrioData;
-import Proiect_PS.Model.Property;
-import Proiect_PS.Repository.RepositoryProperty;
-import Proiect_PS.Repository.RepositoryUser;
-import org.springframework.stereotype.Repository;
+import Proiect_PS.dto.PropertyData;
+import Proiect_PS.dto.PropertyTitleData;
+import Proiect_PS.dto.PropertyTrioData;
+import Proiect_PS.model.Property;
+import Proiect_PS.repository.RepositoryProperty;
+import Proiect_PS.repository.RepositoryUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

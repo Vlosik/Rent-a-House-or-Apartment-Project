@@ -1,10 +1,6 @@
-package Proiect_PS.DTO;
+package Proiect_PS.dto;
 
-import Proiect_PS.Model.PropertyType;
-import Proiect_PS.Model.User;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import Proiect_PS.model.PropertyType;
 
 import java.math.BigDecimal;
 

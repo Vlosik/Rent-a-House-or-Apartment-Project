@@ -1,9 +1,9 @@
-package Proiect_PS.Service;
+package Proiect_PS.service;
 
-import Proiect_PS.DTO.UserData;
-import Proiect_PS.DTO.UserPasswordData;
-import Proiect_PS.DTO.UserUsernameData;
-import Proiect_PS.Model.User;
+import Proiect_PS.dto.UserData;
+import Proiect_PS.dto.UserPasswordData;
+import Proiect_PS.dto.UserUsernameData;
+import Proiect_PS.model.User;
 
 import java.util.List;
 /**
@@ -17,7 +17,7 @@ public interface ServiceUserInterface {
      *
      * @param userData Datele utilizatorului pentru inserare.
      */
-    void insertUser(UserData userData);
+    User insertUser(UserData userData);
     /**
      * Șterge un utilizator din sistem bazat pe username.
      *
@@ -30,7 +30,7 @@ public interface ServiceUserInterface {
      *
      * @param userData Datele noi ale utilizatorului pentru actualizare.
      */
-    void updateUser(UserData userData);
+    User updateUser(UserData userData);
     /**
      * Găsește un utilizator în sistem bazat pe username.
      *
@@ -49,5 +49,5 @@ public interface ServiceUserInterface {
      *
      * @param userPasswordData Datele necesare pentru actualizarea parolei.
      */
-    void updatePassword(UserPasswordData userPasswordData);
+    User updatePassword(UserPasswordData userPasswordData);
 }

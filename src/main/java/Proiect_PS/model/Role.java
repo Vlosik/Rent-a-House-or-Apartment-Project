@@ -1,4 +1,4 @@
-package Proiect_PS.Model;
+package Proiect_PS.model;
 
 public enum Role {
     USER, ADMIN

@@ -1,8 +1,4 @@
-package Proiect_PS.DTO;
-
-import Proiect_PS.Model.Property;
-import Proiect_PS.Model.User;
-import jakarta.persistence.*;
+package Proiect_PS.dto;
 
 import java.util.Date;
 

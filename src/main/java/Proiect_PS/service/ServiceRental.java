@@ -1,13 +1,13 @@
-package Proiect_PS.Service;
+package Proiect_PS.service;
 
-import Proiect_PS.DTO.RentalData;
-import Proiect_PS.Model.Rental;
-import Proiect_PS.Model.User;
-import Proiect_PS.ObserverPattern.Observer;
-import Proiect_PS.ObserverPattern.Subject;
-import Proiect_PS.Repository.RepositoryProperty;
-import Proiect_PS.Repository.RepositoryRental;
-import Proiect_PS.Repository.RepositoryUser;
+import Proiect_PS.dto.RentalData;
+import Proiect_PS.model.Rental;
+import Proiect_PS.model.User;
+import Proiect_PS.observerPattern.Observer;
+import Proiect_PS.observerPattern.Subject;
+import Proiect_PS.repository.RepositoryProperty;
+import Proiect_PS.repository.RepositoryRental;
+import Proiect_PS.repository.RepositoryUser;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

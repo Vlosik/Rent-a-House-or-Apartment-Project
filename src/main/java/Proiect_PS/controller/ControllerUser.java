@@ -1,11 +1,11 @@
-package Proiect_PS.Controller;
+package Proiect_PS.controller;
 
-import Proiect_PS.DTO.UserData;
-import Proiect_PS.DTO.UserPasswordData;
-import Proiect_PS.DTO.UserUsernameData;
-import Proiect_PS.Model.User;
-import Proiect_PS.Service.ServiceUser;
-import Proiect_PS.Service.ServiceUserInterface;
+import Proiect_PS.dto.UserData;
+import Proiect_PS.dto.UserPasswordData;
+import Proiect_PS.dto.UserUsernameData;
+import Proiect_PS.model.User;
+import Proiect_PS.service.ServiceUser;
+import Proiect_PS.service.ServiceUserInterface;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

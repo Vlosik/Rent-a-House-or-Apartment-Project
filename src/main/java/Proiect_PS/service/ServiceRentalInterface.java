@@ -1,8 +1,7 @@
-package Proiect_PS.Service;
+package Proiect_PS.service;
 
-import Proiect_PS.DTO.RentalData;
-import Proiect_PS.Model.Rental;
-import org.springframework.data.jpa.repository.JpaRepository;
+import Proiect_PS.dto.RentalData;
+import Proiect_PS.model.Rental;
 
 import java.util.List;
 /**

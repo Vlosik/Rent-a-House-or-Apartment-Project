@@ -1,6 +1,6 @@
-package Proiect_PS.DTO;
+package Proiect_PS.dto;
 
-import Proiect_PS.Model.Role;
+import Proiect_PS.model.Role;
 
 public class UserData {
     private String username;

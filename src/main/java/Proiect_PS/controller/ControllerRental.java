@@ -1,11 +1,9 @@
-package Proiect_PS.Controller;
+package Proiect_PS.controller;
 
-import Proiect_PS.DTO.RentalData;
-import Proiect_PS.Model.Rental;
-import Proiect_PS.Service.ServiceRental;
-import Proiect_PS.Service.ServiceRentalInterface;
-import Proiect_PS.Service.ServiceRental;
-import Proiect_PS.Service.ServiceRentalInterface;
+import Proiect_PS.dto.RentalData;
+import Proiect_PS.model.Rental;
+import Proiect_PS.service.ServiceRental;
+import Proiect_PS.service.ServiceRentalInterface;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

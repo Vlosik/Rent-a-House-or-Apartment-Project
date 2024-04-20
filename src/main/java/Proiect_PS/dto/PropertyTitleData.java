@@ -1,4 +1,4 @@
-package Proiect_PS.DTO;
+package Proiect_PS.dto;
 
 public class PropertyTitleData {
     private String title;

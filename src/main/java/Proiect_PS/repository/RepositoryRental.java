@@ -1,6 +1,6 @@
-package Proiect_PS.Repository;
+package Proiect_PS.repository;
 
-import Proiect_PS.Model.Rental;
+import Proiect_PS.model.Rental;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Date;
