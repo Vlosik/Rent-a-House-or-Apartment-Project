@@ -23,7 +23,7 @@ public interface ServicePropertyInterface {
      *
      * @param propertyData Datele necesare pentru identificarea proprietății de șters.
      */
-    void deleteProperty(PropertyTitleData propertyData);
+    Property deleteProperty(PropertyTitleData propertyData);
     /**
      * Actualizează detaliile unei proprietăți existente în sistem.
      *

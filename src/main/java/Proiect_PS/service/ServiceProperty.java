@@ -52,8 +52,10 @@ public class ServiceProperty implements ServicePropertyInterface {
      * @param propertyData Datele proprietății pentru identificarea titlului.
      */
     @Override
-    public void deleteProperty(PropertyTitleData propertyData) {
-        repositoryProperty.delete(this.findByTitle(propertyData.getTitle()));
+    public Property deleteProperty(PropertyTitleData propertyData) {
+        Property property = this.findByTitle(propertyData.getTitle());
+        repositoryProperty.delete(property);
+        return property;
     }
     /**
      * Actualizează detaliile unei proprietăți existente în sistem.
