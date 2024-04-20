@@ -16,6 +16,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class ServicePropertyTests {
     private ServiceProperty property;
@@ -37,9 +38,8 @@ public class ServicePropertyTests {
     @Test
     public void deletePropertyFindMethodTest(){
         PropertyTitleData propertyData = new PropertyTitleData();
-        ServiceProperty spyProperty = Mockito.spy(property);
-        spyProperty.deleteProperty(propertyData);
-        verify(spyProperty).findByTitle(propertyData.getTitle());
+        property.deleteProperty(propertyData);
+        verify(repositoryProperty).findByTitle(propertyData.getTitle());
     }
     @Test
     public void deletePropertyMethodTest(){
@@ -52,6 +52,19 @@ public class ServicePropertyTests {
         PropertyTrioData propertyTrioData = new PropertyTrioData();
         property.findByTitlePriceAndLocation(propertyTrioData);
         verify(repositoryProperty).findByTitlePriceAndLocation(propertyTrioData.getTitle(),propertyTrioData.getPrice(),propertyTrioData.getLocation());
+    }
+    @Test
+    public void updatePropertyFindMethodTest(){
+        PropertyData propertyData = new PropertyData();
+        property.updateProperty(propertyData);
+        verify(repositoryProperty).findByTitle(propertyData.getTitle());
+    }
+    @Test
+    public void updatePropertyMethodTest(){
+        PropertyData propertyData = new PropertyData();
+        when(property.findByTitle(propertyData.getTitle())).thenReturn(new Property());
+        Property propertyClone = property.updateProperty(propertyData);
+        verify(repositoryProperty).save(propertyClone);
     }
     @Test
     public void findAllTest(){

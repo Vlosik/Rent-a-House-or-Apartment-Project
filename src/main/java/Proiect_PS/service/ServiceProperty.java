@@ -9,6 +9,7 @@ import Proiect_PS.repository.RepositoryUser;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 /**
  * Clasa ServiceProperty oferă servicii de gestionare a proprietăților în sistem.
  * Implementează interfața ServicePropertyInterface și folosește RepositoryProperty
@@ -18,16 +19,18 @@ import java.util.List;
 public class ServiceProperty implements ServicePropertyInterface {
     private RepositoryProperty repositoryProperty;
     private RepositoryUser repositoryUser;
+
     /**
      * Constructor pentru ServiceProperty.
      *
      * @param repositoryProperty Referința către RepositoryProperty pentru interacțiunea cu proprietățile.
-     * @param repositoryUser Referința către RepositoryUser pentru interacțiunea cu utilizatorii.
+     * @param repositoryUser     Referința către RepositoryUser pentru interacțiunea cu utilizatorii.
      */
-    public ServiceProperty(RepositoryProperty repositoryProperty,RepositoryUser repositoryUser){
+    public ServiceProperty(RepositoryProperty repositoryProperty, RepositoryUser repositoryUser) {
         this.repositoryProperty = repositoryProperty;
         this.repositoryUser = repositoryUser;
     }
+
     /**
      * Inserează o nouă proprietate în sistem.
      *
@@ -46,6 +49,7 @@ public class ServiceProperty implements ServicePropertyInterface {
         repositoryProperty.save(property);
         return property;
     }
+
     /**
      * Șterge o proprietate din sistem bazat pe titlu.
      *
@@ -57,20 +61,25 @@ public class ServiceProperty implements ServicePropertyInterface {
         repositoryProperty.delete(property);
         return property;
     }
+
     /**
      * Actualizează detaliile unei proprietăți existente în sistem.
      *
      * @param propertyData Datele actualizate ale proprietății.
      */
     @Override
-    public void updateProperty(PropertyData propertyData) {
+    public Property updateProperty(PropertyData propertyData) {
         Property property = this.findByTitle(propertyData.getTitle());
-        property.setDescription(propertyData.getDescription());
-        property.setAvailable(propertyData.getFree());
-        property.setPrice(propertyData.getPrice());
-        property.setLocation(propertyData.getLocation());
-        repositoryProperty.save(property);
+        if (property != null) {
+            property.setDescription(propertyData.getDescription());
+            property.setAvailable(propertyData.getFree());
+            property.setPrice(propertyData.getPrice());
+            property.setLocation(propertyData.getLocation());
+            repositoryProperty.save(property);
+        }
+        return property;
     }
+
     /**
      * Caută proprietăți bazate pe titlu, preț și locație.
      *
@@ -79,8 +88,9 @@ public class ServiceProperty implements ServicePropertyInterface {
      */
     @Override
     public List<Property> findByTitlePriceAndLocation(PropertyTrioData propertyTrioData) {
-        return repositoryProperty.findByTitlePriceAndLocation(propertyTrioData.getTitle(),propertyTrioData.getPrice(), propertyTrioData.getLocation());
+        return repositoryProperty.findByTitlePriceAndLocation(propertyTrioData.getTitle(), propertyTrioData.getPrice(), propertyTrioData.getLocation());
     }
+
     /**
      * Returnează toate proprietățile din sistem.
      *
@@ -90,6 +100,7 @@ public class ServiceProperty implements ServicePropertyInterface {
     public List<Property> findAll() {
         return repositoryProperty.findAll();
     }
+
     /**
      * Caută o proprietate bazată pe titlu.
      *
@@ -100,6 +111,7 @@ public class ServiceProperty implements ServicePropertyInterface {
     public Property findByTitle(String title) {
         return repositoryProperty.findByTitle(title);
     }
+
     /**
      * Returnează lista proprietăților disponibile pentru închiriere.
      *

@@ -29,7 +29,7 @@ public interface ServicePropertyInterface {
      *
      * @param propertyData Datele actualizate ale proprietății.
      */
-    void updateProperty(PropertyData propertyData);
+    Property updateProperty(PropertyData propertyData);
     /**
      * Caută proprietăți bazându-se pe titlu, preț și locație.
      *

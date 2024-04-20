@@ -1,6 +1,7 @@
 package Proiect_PS.service;
 
 import Proiect_PS.dto.RentalData;
+import Proiect_PS.model.Property;
 import Proiect_PS.model.Rental;
 import Proiect_PS.model.User;
 import Proiect_PS.observerPattern.Observer;
@@ -47,14 +48,19 @@ public class ServiceRental implements ServiceRentalInterface, Subject {
      * @param rentalData Datele închirierii pentru inserare.
      */
     @Override
-    public void insertRental(RentalData rentalData) {
+    public Rental insertRental(RentalData rentalData) {
         Rental rental = new Rental();
-        rental.setUser(repositoryUser.findByUsername(rentalData.getUsername_user()));
-        rental.setProperty(repositoryProperty.findByTitle(rentalData.getProperty_title()));
-        rental.setStartDate(rentalData.getStartDate());
-        rental.setEndDate(rentalData.getEndDate());
-        this.notifyObservers(this.createNotifyMessage(rentalData),rental.getUser());
-        repositoryRental.save(rental);
+        User user = repositoryUser.findByUsername(rentalData.getUsername_user());
+        Property property = repositoryProperty.findByTitle(rentalData.getProperty_title());
+        if(user != null && property != null) {
+            rental.setUser(user);
+            rental.setProperty(property);
+            rental.setStartDate(rentalData.getStartDate());
+            rental.setEndDate(rentalData.getEndDate());
+            this.notifyObservers(this.createNotifyMessage(rentalData), rental.getUser());
+            repositoryRental.save(rental);
+        }
+        return rental;
     }
     /**
      * Generează un mesaj de notificare pentru închirierile noi.

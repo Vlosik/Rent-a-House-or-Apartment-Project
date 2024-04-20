@@ -14,7 +14,7 @@ public interface ServiceRentalInterface {
      *
      * @param rentalData Datele închirierii pentru inserare.
      */
-    void insertRental(RentalData rentalData);
+    Rental insertRental(RentalData rentalData);
     /**
      * Șterge toate închirierile din sistem.
      */
