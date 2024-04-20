@@ -34,7 +34,7 @@ public class ServiceProperty implements ServicePropertyInterface {
      * @param propertyData Datele proprietății pentru inserare.
      */
     @Override
-    public void insertProperty(PropertyData propertyData) {
+    public Property insertProperty(PropertyData propertyData) {
         Property property = new Property();
         property.setAdmin(repositoryUser.findByUsername(propertyData.getAdmin_username()));
         property.setTitle(propertyData.getTitle());
@@ -44,6 +44,7 @@ public class ServiceProperty implements ServicePropertyInterface {
         property.setType(propertyData.getType());
         property.setLocation(propertyData.getLocation());
         repositoryProperty.save(property);
+        return property;
     }
     /**
      * Șterge o proprietate din sistem bazat pe titlu.

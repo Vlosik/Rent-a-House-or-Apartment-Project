@@ -17,7 +17,7 @@ public interface ServicePropertyInterface {
      *
      * @param propertyData Datele noii proprietăți.
      */
-    void insertProperty(PropertyData propertyData);
+    Property insertProperty(PropertyData propertyData);
     /**
      * Șterge o proprietate din sistem bazată pe titlul acesteia.
      *
