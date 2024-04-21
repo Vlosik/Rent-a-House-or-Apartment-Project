@@ -13,6 +13,7 @@ public interface ServiceRentalInterface {
      * Inserează o nouă închiriere în sistem pe baza datelor furnizate.
      *
      * @param rentalData Datele închirierii pentru inserare.
+     * @return Inchirierea inserata.
      */
     Rental insertRental(RentalData rentalData);
     /**

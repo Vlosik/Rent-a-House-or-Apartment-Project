@@ -46,6 +46,7 @@ public class ServiceRental implements ServiceRentalInterface, Subject {
      * Inserează o nouă închiriere în sistem și notifică utilizatorii despre aceasta.
      *
      * @param rentalData Datele închirierii pentru inserare.
+     * @return Inchirierea inserata.
      */
     @Override
     public Rental insertRental(RentalData rentalData) {

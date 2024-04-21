@@ -49,6 +49,7 @@ public class ServiceUser implements ServiceUserInterface{
      * Deletes an existing user from the system based on the given user data.
      *
      * @param userData The data for the user to be deleted.
+     * @return user deleted.
      */
     @Override
     public User deleteUser(UserUsernameData userData){
@@ -61,6 +62,7 @@ public class ServiceUser implements ServiceUserInterface{
      * Updates an existing user's information in the system based on the given user data.
      *
      * @param userData The new data for the user to be updated.
+     * @return user updated.
      */
     @Override
     public User updateUser(UserData userData){
@@ -102,6 +104,7 @@ public class ServiceUser implements ServiceUserInterface{
      * Actualizează parola unui utilizator.
      *
      * @param userPasswordData Datele utilizatorului pentru actualizarea parolei.
+     * @return user-ul cu parola actualizata.
      */
     @Override
     public User updatePassword(UserPasswordData userPasswordData) {

@@ -16,6 +16,7 @@ public interface ServiceUserInterface {
      * Inserează un nou utilizator în sistem.
      *
      * @param userData Datele utilizatorului pentru inserare.
+     * @return new User.
      */
     User insertUser(UserData userData);
     /**
@@ -29,6 +30,7 @@ public interface ServiceUserInterface {
      * Actualizează informațiile unui utilizator existent.
      *
      * @param userData Datele noi ale utilizatorului pentru actualizare.
+     * @return user updated.
      */
     User updateUser(UserData userData);
     /**
@@ -48,6 +50,7 @@ public interface ServiceUserInterface {
      * Actualizează parola unui utilizator.
      *
      * @param userPasswordData Datele necesare pentru actualizarea parolei.
+     * @return user-ul cu parola actualizata.
      */
     User updatePassword(UserPasswordData userPasswordData);
 }

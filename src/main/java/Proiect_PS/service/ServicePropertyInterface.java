@@ -16,18 +16,21 @@ public interface ServicePropertyInterface {
      * Inserează o nouă proprietate în sistem bazată pe datele furnizate.
      *
      * @param propertyData Datele noii proprietăți.
+     * @return Proprietatea care este inserata.
      */
     Property insertProperty(PropertyData propertyData);
     /**
      * Șterge o proprietate din sistem bazată pe titlul acesteia.
      *
      * @param propertyData Datele necesare pentru identificarea proprietății de șters.
+     * @return Proprietatea care este stearsa.
      */
     Property deleteProperty(PropertyTitleData propertyData);
     /**
      * Actualizează detaliile unei proprietăți existente în sistem.
      *
      * @param propertyData Datele actualizate ale proprietății.
+     * @return Proprietatea care este actualizata.
      */
     Property updateProperty(PropertyData propertyData);
     /**

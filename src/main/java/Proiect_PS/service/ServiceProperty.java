@@ -35,6 +35,7 @@ public class ServiceProperty implements ServicePropertyInterface {
      * Inserează o nouă proprietate în sistem.
      *
      * @param propertyData Datele proprietății pentru inserare.
+     * @return Proprietatea care este inserata.
      */
     @Override
     public Property insertProperty(PropertyData propertyData) {
@@ -54,6 +55,7 @@ public class ServiceProperty implements ServicePropertyInterface {
      * Șterge o proprietate din sistem bazat pe titlu.
      *
      * @param propertyData Datele proprietății pentru identificarea titlului.
+     * @return Proprietatea care este stearsa.
      */
     @Override
     public Property deleteProperty(PropertyTitleData propertyData) {
@@ -66,6 +68,7 @@ public class ServiceProperty implements ServicePropertyInterface {
      * Actualizează detaliile unei proprietăți existente în sistem.
      *
      * @param propertyData Datele actualizate ale proprietății.
+     * @return Proprietatea care este actualizata.
      */
     @Override
     public Property updateProperty(PropertyData propertyData) {
