@@ -19,6 +19,13 @@ This website provides users with the opportunity to rent or purchase a house or 
 - **Backend:** Spring Boot
 - **Database:** MySQL
 
+
+
+  ![Database Diagram](database_diagram.PNG)
+
+
+
+
 Spring Boot is utilized for creating the backend services, providing an efficient and powerful way to build the application's API. MySQL is used as the database solution, offering reliable data storage and retrieval for both user and property information.
 
 
@@ -54,3 +61,7 @@ The website offers a comprehensive set of API endpoints to manage users, propert
 ---
 
 These endpoints facilitate the robust functioning of the website, enabling users to rent or purchase homes, and admins to manage listings and gather reports efficiently. The utilization of Spring Boot for backend services and MySQL for the database ensures a secure, reliable, and scalable application architecture.
+## Testing
+
+We have implemented and tested the functionalities using Mockito to simulate interaction with objects and methods in the application. The tests were designed to verify the correctness of insertion, update, deletion, and search operations, as well as to ensure the proper functioning of data display and notifications logic.
+
