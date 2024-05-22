@@ -1,0 +1,114 @@
+.user-editor-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333;
+}
+
+.user-editor {
+    width: 100%;
+    max-width: 1200px;
+    padding: 70px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 10px rgba(255, 255, 255, .2);
+    margin-top: 10px; /* Added margin-top to move the editor down */
+}
+
+.user-editor h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.user-editor label {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.user-editor input,
+.user-editor select {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+.user-editor input:focus,
+.user-editor select:focus {
+    outline: none;
+    border-color: rgba(123, 200, 255, 1);
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.user-editor button {
+    padding: 15px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: rgba(123, 200, 255, 1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 5px;
+}
+
+.user-editor button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.delete-button {
+    background-color: rgba(255, 0, 0, 0.7); /* Red background for delete button */
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: rgba(255, 0, 0, 0.9); /* Darker red on hover */
+}
+
+.back {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    position: absolute;
+    right: 20px;
+    top: 80px;
+}
+
+.back:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+}
+
+.link-box {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(123, 200, 255, 1);
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-right: 5px;
+}
+
+.back .icon {
+    font-size: 20px;
+    color: rgba(123, 200, 255, 1);
+}

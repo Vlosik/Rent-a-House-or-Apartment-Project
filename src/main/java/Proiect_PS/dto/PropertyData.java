@@ -1,6 +1,7 @@
 package Proiect_PS.dto;
 
 import Proiect_PS.model.PropertyType;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 
@@ -12,6 +13,15 @@ public class PropertyData {
     private Boolean free;
     private PropertyType type;
     private String location;
+    private MultipartFile image;
+
+    public MultipartFile getImage() {
+        return image;
+    }
+
+    public void setImage(MultipartFile image) {
+        this.image = image;
+    }
 
     public String getAdmin_username() {
         return admin_username;

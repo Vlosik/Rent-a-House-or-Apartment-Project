@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    background: rgb(123,200,255);
+    background: linear-gradient(74deg, rgba(123,200,255,1) 0%, rgba(155,228,235,1) 48%, rgba(221,241,242,1) 100%);
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    flex: 0 0 auto; /* Logo should not grow or shrink */
+}
+
+.nav-elements {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.nav-elements ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-elements ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.box {
+    font-size: 24px;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-left: 50px;
+    padding: 15px 20px;
+    white-space: nowrap;
+}
+
+.box:hover {
+    transform: scale(1.2);
+}
+
+.logo .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ensure full width */
+    height: 100%; /* Ensure full height */
+}
+
+.logo .box svg {
+    height: 24px;
+    width: auto;
+}
+
+.search-container {
+    flex: 1; /* Search container should grow to take available space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-field {
+    width: 200px; /* Adjust width as needed */
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    margin-right: 10px;
+    margin-left: 55px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.sign-out .box {
+    padding: 15px 20px; /* Increase padding for the sign-out box */
+    white-space: nowrap; /* Prevent text from wrapping */
+}

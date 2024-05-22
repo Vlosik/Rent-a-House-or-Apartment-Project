@@ -59,4 +59,7 @@ public interface ServicePropertyInterface {
      * @return Lista de proprietăți disponibile.
      */
     List<Property> findAvailables();
+
+    Property updatePropertyPhoto(PropertyData propertyData);
+    List<Property> search(PropertyTitleData propertyTitleData);
 }

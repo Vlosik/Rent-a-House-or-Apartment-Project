@@ -1,6 +1,8 @@
 package Proiect_PS.model;
 
 import jakarta.persistence.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -36,6 +38,18 @@ public class Property {
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
+
+    @Lob
+    @Column(name = "image", columnDefinition = "LONGBLOB")
+    private byte[] image;
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 
     @PrePersist
     protected void onCreate() {
@@ -113,5 +127,6 @@ public class Property {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
 }
 

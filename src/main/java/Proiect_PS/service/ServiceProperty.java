@@ -6,8 +6,11 @@ import Proiect_PS.dto.PropertyTrioData;
 import Proiect_PS.model.Property;
 import Proiect_PS.repository.RepositoryProperty;
 import Proiect_PS.repository.RepositoryUser;
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,6 +50,11 @@ public class ServiceProperty implements ServicePropertyInterface {
         property.setPrice(propertyData.getPrice());
         property.setType(propertyData.getType());
         property.setLocation(propertyData.getLocation());
+        try {
+            property.setImage(propertyData.getImage().getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         repositoryProperty.save(property);
         return property;
     }
@@ -77,7 +85,27 @@ public class ServiceProperty implements ServicePropertyInterface {
             property.setDescription(propertyData.getDescription());
             property.setAvailable(propertyData.getFree());
             property.setPrice(propertyData.getPrice());
+            property.setType(propertyData.getType());
             property.setLocation(propertyData.getLocation());
+            repositoryProperty.save(property);
+        }
+        return property;
+    }
+
+    @Override
+    public Property updatePropertyPhoto(PropertyData propertyData) {
+        Property property = this.findByTitle(propertyData.getTitle());
+        if (property != null) {
+            property.setDescription(propertyData.getDescription());
+            property.setAvailable(propertyData.getFree());
+            property.setPrice(propertyData.getPrice());
+            property.setType(propertyData.getType());
+            property.setLocation(propertyData.getLocation());
+            try {
+                property.setImage(propertyData.getImage().getBytes());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             repositoryProperty.save(property);
         }
         return property;
@@ -123,5 +151,17 @@ public class ServiceProperty implements ServicePropertyInterface {
     @Override
     public List<Property> findAvailables() {
         return repositoryProperty.findByIsAvailable(Boolean.valueOf("true"));
+    }
+
+    @Override
+    public List<Property> search(PropertyTitleData propertyTitleData) {
+        List<Property> searches = new ArrayList<>();
+        List<Property> properties = this.findAll();
+        for(Property p : properties){
+            if(p.getTitle().contains(propertyTitleData.getTitle())){
+                searches.add(p);
+            }
+        }
+        return searches;
     }
 }

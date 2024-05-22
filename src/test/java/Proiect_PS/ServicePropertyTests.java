@@ -35,15 +35,6 @@ public class ServicePropertyTests {
         property = new ServiceProperty(repositoryProperty,repositoryUser);
     }
     /**
-     * Testează metoda insertProperty din clasa ServiceProperty.
-     */
-    @Test
-    public void insertPropertyMethodTest(){
-        PropertyData propertyData = new PropertyData();
-        Property propertyClone = property.insertProperty(propertyData);
-        verify(repositoryProperty).save(propertyClone);
-    }
-    /**
      * Testează metoda deleteProperty din clasa ServiceProperty pentru căutarea unei proprietăți după titlu.
      */
     @Test

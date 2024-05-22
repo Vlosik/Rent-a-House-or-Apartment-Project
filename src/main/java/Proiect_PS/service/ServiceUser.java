@@ -3,6 +3,7 @@ package Proiect_PS.service;
 import Proiect_PS.dto.UserData;
 import Proiect_PS.dto.UserPasswordData;
 import Proiect_PS.dto.UserUsernameData;
+import Proiect_PS.model.Role;
 import Proiect_PS.model.User;
 import Proiect_PS.repository.RepositoryUser;
 import org.springframework.stereotype.Service;
@@ -66,7 +67,7 @@ public class ServiceUser implements ServiceUserInterface{
      */
     @Override
     public User updateUser(UserData userData){
-        User user = user = repositoryUser.findByUsername(userData.getUsername());
+        User user = repositoryUser.findByUsername(userData.getUsername());
         if(user != null) {
             user.setPassword(userData.getPassword());
             user.setEmail(userData.getEmail());
@@ -114,5 +115,24 @@ public class ServiceUser implements ServiceUserInterface{
         }
         repositoryUser.save(user);
         return user;
+    }
+
+    @Override
+    public Integer login(UserPasswordData userPasswordData) {
+        User user = repositoryUser.findByUsername(userPasswordData.getUsername());
+        if(user != null){
+            if(user.getPassword().equals(userPasswordData.getPassword())){
+                if(user.getRole().equals(Role.ADMIN)){
+                    return 1;
+                }
+                else{
+                    return 2;
+                }
+            }
+            else{
+                return 0;
+            }
+        }
+        return null;
     }
 }

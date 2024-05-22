@@ -53,4 +53,5 @@ public interface ServiceUserInterface {
      * @return user-ul cu parola actualizata.
      */
     User updatePassword(UserPasswordData userPasswordData);
+    Integer login(UserPasswordData userPasswordData);
 }

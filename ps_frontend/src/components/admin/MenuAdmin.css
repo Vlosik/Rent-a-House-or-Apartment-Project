@@ -1,0 +1,38 @@
+.meniu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: transparent;
+    width: 100vw;
+    box-sizing: border-box;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.instructions {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.instructions:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.link-box {
+    font-size: 24px;
+    font-weight: 400;
+    color: rgba(123, 200, 255, 1);
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-right: 20px;
+}
+
+.instructions .icon {
+    font-size: 32px;
+    color: rgba(123, 200, 255, 1);
+}

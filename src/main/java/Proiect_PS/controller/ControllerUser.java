@@ -45,7 +45,7 @@ public class ControllerUser {
      *
      * @param userData The user data used for the search.
      */
-    @GetMapping("/findUser")
+    @PostMapping ("/findUser")
     public User findByUser(@RequestBody UserUsernameData userData){
         return this.serviceUser.findUserByUsername(userData);
     }
@@ -92,5 +92,10 @@ public class ControllerUser {
     @PutMapping ("/updatePassword")
     public void updatePasswordUser(@RequestBody UserPasswordData userData){
         this.serviceUser.updatePassword(userData);
+    }
+
+    @PostMapping("/login")
+    public Integer Login(@RequestBody UserPasswordData userData){
+        return this.serviceUser.login(userData);
     }
 }

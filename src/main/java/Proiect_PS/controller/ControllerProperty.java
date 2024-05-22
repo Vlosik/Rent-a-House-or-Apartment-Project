@@ -2,10 +2,13 @@ package Proiect_PS.controller;
 
 import Proiect_PS.dto.*;
 import Proiect_PS.model.Property;
+import Proiect_PS.model.PropertyType;
 import Proiect_PS.service.ServiceProperty;
 import Proiect_PS.service.ServicePropertyInterface;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.math.BigDecimal;
 import java.util.List;
 @RestController
 @RequestMapping("/property")
@@ -25,7 +28,24 @@ public class ControllerProperty {
      *                     preț, tip, și alte informații relevante.
      */
     @PostMapping("/insert")
-    public void addProperty(@RequestBody PropertyData propertyData){
+    public void addProperty(@RequestParam("admin_username") String adminUsername,
+                            @RequestParam("title") String title,
+                            @RequestParam("description") String description,
+                            @RequestParam("price") double price,
+                            @RequestParam("free") boolean free,
+                            @RequestParam("type") String type,
+                            @RequestParam("location") String location,
+                            @RequestParam("image") MultipartFile image)
+    {
+        PropertyData propertyData = new PropertyData();
+        propertyData.setImage(image);
+        propertyData.setDescription(description);
+        propertyData.setFree(free);
+        propertyData.setPrice(BigDecimal.valueOf(price));
+        propertyData.setType(PropertyType.valueOf(type));
+        propertyData.setTitle(title);
+        propertyData.setAdmin_username(adminUsername);
+        propertyData.setLocation(location);
         this.serviceProperty.insertProperty(propertyData);
     }
     /**
@@ -47,8 +67,40 @@ public class ControllerProperty {
      * @param propertyData Datele actualizate ale proprietății, incluzând titlu, descriere,
      *                     preț, și alte detalii relevante.
      */
+    @PutMapping ("/updatePhoto")
+    public void updateProperty(@RequestParam("title") String title,
+                               @RequestParam("description") String description,
+                               @RequestParam("price") double price,
+                               @RequestParam("free") boolean free,
+                               @RequestParam("type") String type,
+                               @RequestParam("location") String location,
+                               @RequestParam("image") MultipartFile image){
+        PropertyData propertyData = new PropertyData();
+        propertyData.setImage(image);
+        propertyData.setDescription(description);
+        propertyData.setFree(free);
+        propertyData.setPrice(BigDecimal.valueOf(price));
+        propertyData.setType(PropertyType.valueOf(type));
+        propertyData.setTitle(title);
+        propertyData.setLocation(location);
+        this.serviceProperty.updatePropertyPhoto(propertyData);
+    }
+
     @PutMapping ("/update")
-    public void updateProperty(@RequestBody PropertyData propertyData){
+    public void updateProperty(@RequestParam("title") String title,
+                               @RequestParam("description") String description,
+                               @RequestParam("price") double price,
+                               @RequestParam("free") boolean free,
+                               @RequestParam("type") String type,
+                               @RequestParam("location") String location){
+        PropertyData propertyData = new PropertyData();
+        propertyData.setDescription(description);
+        System.out.println(free);
+        propertyData.setFree(free);
+        propertyData.setPrice(BigDecimal.valueOf(price));
+        propertyData.setType(PropertyType.valueOf(type));
+        propertyData.setTitle(title);
+        propertyData.setLocation(location);
         this.serviceProperty.updateProperty(propertyData);
     }
     /**
@@ -94,5 +146,10 @@ public class ControllerProperty {
     @GetMapping("/findAvailables")
     public List<Property> findAvailables(){
         return this.serviceProperty.findAvailables();
+    }
+
+    @PostMapping("/search")
+    public List<Property> search(@RequestBody PropertyTitleData propertytitleData){
+        return this.serviceProperty.search(propertytitleData);
     }
 }
