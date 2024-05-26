@@ -37,6 +37,7 @@ body {
 
 .logo {
     flex: 0 0 auto; /* Logo should not grow or shrink */
+    filter: brightness(0) invert(1); /* Make the logo white */
 }
 
 .nav-elements {
@@ -94,6 +95,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 30px;
 }
 
 .search-field {
@@ -123,7 +125,67 @@ body {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+
 .sign-out .box {
     padding: 15px 20px; /* Increase padding for the sign-out box */
     white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.notifications {
+    position: relative;
+}
+
+.notifications .icon {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.notifications .icon:hover {
+    transform: scale(1.2);
+}
+
+.notifications-list {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 600px; /* Increased width */
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.notifications-list h4 {
+    margin: 0;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-bottom: 1px solid #ccc;
+    border-radius: 8px 8px 0 0;
+}
+
+.notifications-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notifications-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    word-wrap: break-word; /* Allow long text to wrap */
+}
+
+.notifications-list li:last-child {
+    border-bottom: none;
+}
+
+.notifications-list li:hover {
+    background-color: #f0f0f0;
 }

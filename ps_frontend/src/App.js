@@ -12,6 +12,11 @@ import EditProperty from "./components/admin/EditProperty";
 import Profile from "./components/admin/Profile";
 import Contact from "./components/admin/Contact";
 import HomeUser from "./components/user/HomeUser"
+import Property from "./components/user/Property";
+import ProfileUser from "./components/user/ProfileUser"
+import ContactUser from "./components/user/ContactUser"
+import ShowRentals from "./components/user/ShowRentals";
+
 function App() {
     return (
         <Router>
@@ -26,8 +31,12 @@ function App() {
                 <Route path="/addProperty" element={<AddProperty />} />
                 <Route path="/editProperty" element={<EditProperty />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/profileUser" element={<ProfileUser />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/contactUser" element={<ContactUser />} />
                 <Route path="/homeUser" element={<HomeUser />} />
+                <Route path="/property" element={<Property />} />
+                <Route path="/userRentals" element={<ShowRentals />} />
             </Routes>
         </Router>
     );

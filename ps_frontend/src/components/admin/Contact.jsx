@@ -17,15 +17,15 @@ class Contact extends Component {
                     <h1>Contact Us</h1>
                     <div className="contact-item">
                         <label>Phone Number:</label>
-                        <span>+1 (555) 123-4567</span>
+                        <span>+40749316040</span>
                     </div>
                     <div className="contact-item">
                         <label>Email:</label>
-                        <span>contact@example.com</span>
+                        <span>adrianvlose6@gmail.com</span>
                     </div>
                     <div className="contact-item">
                         <label>Address:</label>
-                        <span>123 Main St, Anytown, USA</span>
+                        <span>Strada Observatorului 34, Cluj, Romania</span>
                     </div>
                     <div className="contact-item">
                         <label>Working Hours:</label>

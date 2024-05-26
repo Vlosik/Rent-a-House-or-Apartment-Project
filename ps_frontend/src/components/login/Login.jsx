@@ -27,20 +27,22 @@ class Login extends Component {
         axiosInstance.post("/user/login",verify)
             .then(response => {
                 console.log(response.data);
-                if (response.data !== 0) {
+                if (response.data !== null) {
                     if(response.data === 1){
                         localStorage.setItem('username', username);
                         history.push("/home");
                         window.location.reload();
                     }
                     else{
-                        localStorage.setItem('usernameUser', username);
-                        history.push("/homeUser");
-                        window.location.reload();
+                        if(response.data === 2){
+                            localStorage.setItem('usernameUser', username);
+                            history.push("/homeUser");
+                            window.location.reload();
+                        }
+                        else{
+                            alert("Invalid username or password");
+                        }
                     }
-                } else {
-                    // Handle login failure
-                    console.log("Login failed");
                 }
             })
             .catch(error => {

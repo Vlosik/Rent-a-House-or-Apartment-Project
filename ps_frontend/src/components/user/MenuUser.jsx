@@ -3,12 +3,16 @@ import axiosInstance from "../../axios";
 import './MenuUser.css';
 import { Link } from "react-router-dom";
 import { IoArrowBack, IoArrowForward } from "react-icons/io5";
+import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
+import history from "../../history";
 
 class MenuUser extends Component {
     constructor(props) {
         super(props);
         this.state = {
             properties: [],
+            favoriteProperties: [],
             currentPage: 1,
             propertiesPerPage: 5,
             loading: true,
@@ -18,6 +22,7 @@ class MenuUser extends Component {
 
     componentDidMount() {
         this.fetchProperties();
+        this.fetchFavoriteProperties();
     }
 
     fetchProperties = () => {
@@ -25,7 +30,7 @@ class MenuUser extends Component {
 
         if (searchQuery && searchQuery.trim() !== '') {
             const searchQueryObject = { title: searchQuery };
-            axiosInstance.post("property/search",searchQueryObject)
+            axiosInstance.post("property/search", searchQueryObject)
                 .then(response => {
                     this.setState({ properties: response.data, loading: false });
                 })
@@ -43,6 +48,20 @@ class MenuUser extends Component {
         }
     }
 
+    fetchFavoriteProperties = () => {
+        const username = localStorage.getItem('usernameUser');
+        if (username) {
+            axiosInstance.post("/favorite/getFavorite", { username })
+                .then(response => {
+                    this.setState({ favoriteProperties: response.data });
+
+                })
+                .catch(error => {
+                    this.setState({ error: error.message });
+                });
+        }
+    }
+
     handleNextPage = () => {
         this.setState(prevState => ({
             currentPage: prevState.currentPage + 1
@@ -55,8 +74,12 @@ class MenuUser extends Component {
         }));
     }
 
+    handlePropertyClick = (property) => {
+        localStorage.setItem('selectedProperty', JSON.stringify(property));
+    }
+
     render() {
-        const { properties, currentPage, propertiesPerPage, loading, error } = this.state;
+        const { properties, favoriteProperties, currentPage, propertiesPerPage, loading, error } = this.state;
         const indexOfLastProperty = currentPage * propertiesPerPage;
         const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
         const currentProperties = properties.slice(indexOfFirstProperty, indexOfLastProperty);
@@ -74,27 +97,43 @@ class MenuUser extends Component {
                 <div className='property-list'>
                     <h1>Properties</h1>
                     <div className="property-cards">
-                        {currentProperties.map(property => (
-                            <Link to={`/property/${property.id}`} className="property-link" key={property.id}>
-                                <div className="property-card">
-                                    <img
-                                        src={`data:image/jpeg;base64,${property.image}`}
-                                        alt="Property"
-                                        className="property-image"
-                                    />
-                                    <div className="property-details">
-                                        <div className="property-header">
-                                            <h2 className="property-title">{property.title}</h2>
-                                            <span className="property-type">{property.type}</span>
+                        {currentProperties.map(property => {
+                            const isFavorite = favoriteProperties.some(fav => fav.title === property.title);
+                            console.log(`Property ID: ${property.id}, isFavorite: ${isFavorite}`);
+                            return (
+                                <div className="property-detail-container" key={property.id}>
+                                    <Link
+                                        to={`/property`}
+                                        className="property-link"
+                                        onClick={() => this.handlePropertyClick(property)}
+                                    >
+                                        <div className="property-card">
+                                            <div className="property-image-container">
+                                                <img
+                                                    src={`data:image/jpeg;base64,${property.image}`}
+                                                    alt="Property"
+                                                    className="property-image"
+                                                />
+                                            </div>
+                                            <div className="property-details">
+                                                <div className="property-header">
+                                                    <h2 className="property-title">{property.title}</h2>
+                                                    <span className="property-type">{property.type}</span>
+                                                </div>
+                                                <p className="property-description">{property.description}</p>
+                                                <div className="property-location">
+                                                    <strong>Location:</strong> {property.location}
+                                                </div>
+                                                <div className="property-footer">
+                                                    {isFavorite ? <FaHeart className="icon"/> : <CiHeart className="icon" />}
+                                                    <span className="property-price">${property.price}</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <p className="property-description">{property.description}</p>
-                                        <div className="property-footer">
-                                            <span className="property-price">${property.price}</span>
-                                        </div>
-                                    </div>
+                                    </Link>
                                 </div>
-                            </Link>
-                        ))}
+                            );
+                        })}
                     </div>
                     <div className="pagination">
                         <button

@@ -1,0 +1,101 @@
+.profile-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #333;
+    color: white;
+    margin-top: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.profile-header h1 {
+    margin: 0;
+}
+
+.profile-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+}
+
+.profile-field label {
+    font-weight: bold;
+    color: rgba(123, 200, 255, 1);
+    margin-right: 20px;
+    text-align: left;
+}
+
+.profile-field span,
+.profile-field input {
+    color: white;
+    text-align: right;
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.profile-field input {
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.back {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    position: absolute;
+    right: 20px;
+    top: 80px;
+}
+
+.back:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    text-decoration: none;
+}
+
+.link-box {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(123, 200, 255, 1);
+    text-decoration: none;
+    transition: color 0.3s;
+    margin-right: 5px;
+}
+
+.back .icon {
+    font-size: 20px;
+    color: rgba(123, 200, 255, 1);
+}
+
+.show-rentals-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.show-rentals-button:hover {
+    background-color: #0056b3;
+}

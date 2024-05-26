@@ -123,7 +123,7 @@ public class ControllerProperty {
      * @param propertytitleData Datele necesare pentru căutarea proprietății, incluzând titlul acesteia.
      * @return Proprietatea care corespunde titlului specificat.
      */
-    @GetMapping("/findByTitle")
+    @PostMapping("/findByTitle")
     public Property findByTitle(@RequestBody PropertyTitleData propertytitleData){
         return this.serviceProperty.findByTitle(propertytitleData.getTitle());
     }

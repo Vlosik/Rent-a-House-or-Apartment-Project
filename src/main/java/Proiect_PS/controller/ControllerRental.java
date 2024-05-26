@@ -1,11 +1,14 @@
 package Proiect_PS.controller;
 
+import Proiect_PS.dto.PropertyTitleData;
 import Proiect_PS.dto.RentalData;
+import Proiect_PS.dto.UserUsernameData;
 import Proiect_PS.model.Rental;
 import Proiect_PS.service.ServiceRental;
 import Proiect_PS.service.ServiceRentalInterface;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 /**
  * ControllerRental gestionează operațiunile HTTP legate de închirieri.
@@ -57,5 +60,19 @@ public class ControllerRental {
     @GetMapping("/findAll")
     public List<Rental> findByTitlePriceAndLocation(){
         return this.serviceRental.findAll();
+    }
+
+    @PostMapping("/getDays")
+    public List<Date> lockedDays(@RequestBody PropertyTitleData propertyTitleData){
+        return this.serviceRental.lockedDays(propertyTitleData);
+    }
+
+    @PostMapping("/getRentals")
+    public List<Rental> rentalsUser(@RequestBody UserUsernameData userUsernameData){
+        return this.serviceRental.rentalsUser(userUsernameData);
+    }
+    @DeleteMapping("/delete")
+    public void deleteRental(@RequestBody RentalData rentalData){
+        this.serviceRental.deleteRental(rentalData);
     }
 }

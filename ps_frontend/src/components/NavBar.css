@@ -93,3 +93,68 @@ body {
     padding: 15px 20px; /* Increase padding for the sign-out box */
     white-space: nowrap; /* Prevent text from wrapping */
 }
+.notifications {
+    position: relative;
+}
+
+.notifications .icon {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.notifications .icon:hover {
+    transform: scale(1.2);
+}
+
+.notifications-list {
+    position: absolute;
+    top: 60px;
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-direction: column; /* Arrange items horizontally */
+    justify-content: flex-start;
+    left: 0; /* Adjusted to align to the right */
+    width: 300px; /* Reduced width for better display */
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.notifications-list h4 {
+    margin: 0;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border-bottom: 1px solid #ccc;
+    border-radius: 8px 8px 0 0;
+}
+
+.notifications-list ul {
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-direction: column; /* Arrange items horizontally */
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+}
+
+.notifications-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    word-wrap: break-word; /* Allow long text to wrap */
+}
+
+.notifications-list li:last-child {
+    border-bottom: none;
+}
+
+.notifications-list li:hover {
+    background-color: #f0f0f0;
+}

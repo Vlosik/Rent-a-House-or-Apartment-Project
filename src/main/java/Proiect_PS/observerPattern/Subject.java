@@ -1,4 +1,7 @@
 package Proiect_PS.observerPattern;
+
+import Proiect_PS.model.Property;
+
 /**
  * Interfața Subject definește operațiile disponibile pentru subiectul observat în cadrul design pattern-ului Observer.
  */
@@ -18,5 +21,5 @@ public interface Subject {
      * @param message mesajul care va fi trimis observatorilor
      * @param o observatorul căruia nu trebuie să i se trimită mesajul (poate fi null)
      */
-    void notifyObservers(String message,Observer o);
+    void notifyObservers(String message, Observer o, Property property);
 }

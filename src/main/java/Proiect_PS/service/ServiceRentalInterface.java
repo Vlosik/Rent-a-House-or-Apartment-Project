@@ -1,8 +1,12 @@
 package Proiect_PS.service;
 
+import Proiect_PS.dto.PropertyTitleData;
 import Proiect_PS.dto.RentalData;
+import Proiect_PS.dto.UserPasswordData;
+import Proiect_PS.dto.UserUsernameData;
 import Proiect_PS.model.Rental;
 
+import java.util.Date;
 import java.util.List;
 /**
  * Interfața ServiceRentalInterface definește metodele necesare pentru gestionarea închirierilor
@@ -32,4 +36,8 @@ public interface ServiceRentalInterface {
      * @return Lista închirierilor.
      */
     List<Rental> findAll();
+    List<Date> lockedDays(PropertyTitleData titleData);
+
+    List<Rental> rentalsUser(UserUsernameData userUsernameData);
+    void deleteRental(RentalData rentalData);
 }
