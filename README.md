@@ -26,6 +26,8 @@ This website provides users with the opportunity to rent or purchase a house or 
 - **View All Users:** Admin can see all registered users along with their details.
 - **Receive Messages:** Admin receives messages from users regarding platform issues.
 
+![Use Case Diagram](diagram_usecase.PNG)
+
 ## Tech Stack
 
 - **Backend:** Spring Boot
