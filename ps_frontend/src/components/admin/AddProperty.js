@@ -61,7 +61,6 @@ class AddProperty extends Component {
                     history.push("/home");
                     window.location.reload();
                 } else {
-                    // Handle register failure
                     console.log("Property registration failed");
                 }
             })

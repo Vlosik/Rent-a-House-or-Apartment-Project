@@ -31,7 +31,6 @@ class ContactUser extends Component {
             username : "Adrian",
             message: `${message} (${user})`
         }
-        // Logic to send message to admin
         console.log("Message sent to admin: ", mes);
         axiosInstance.post("/notification/insert",mes)
             .then(response => {
@@ -46,7 +45,6 @@ class ContactUser extends Component {
 
     render() {
         const { showMessageField, message } = this.state;
-
         return (
             <div>
                 <NavBarUser />

@@ -46,7 +46,7 @@ class ProfileUser extends Component {
             <div>
                 <NavBarUser />
                 <div className="back">
-                    <Link to="/home" className="link-box">Back</Link>
+                    <Link to="/homeUser" className="link-box">Back</Link>
                     <IoArrowBack className="icon" />
                 </div>
                 <div className="profile-container">

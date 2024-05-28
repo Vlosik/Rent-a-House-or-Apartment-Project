@@ -76,8 +76,6 @@ class EditProperty extends Component {
     updateProperty = (event) => {
         event.preventDefault();
         const { properties, selectedProperty, title, description, price, free, type, location, image, updateImage } = this.state;
-
-        // Fetch the existing property to get the original 'free' value if necessary
         const existingProperty = properties.find(property => property.id === selectedProperty.id);
         const availability = (free !== true && free !== false) ? existingProperty.available : free;
         console.log('Selected Property:', selectedProperty);

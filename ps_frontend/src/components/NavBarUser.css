@@ -36,8 +36,8 @@ body {
 }
 
 .logo {
-    flex: 0 0 auto; /* Logo should not grow or shrink */
-    filter: brightness(0) invert(1); /* Make the logo white */
+    flex: 0 0 auto;
+    filter: brightness(0) invert(1);
 }
 
 .nav-elements {
@@ -81,8 +81,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%; /* Ensure full width */
-    height: 100%; /* Ensure full height */
+    width: 100%;
+    height: 100%;
 }
 
 .logo .box svg {
@@ -91,7 +91,7 @@ body {
 }
 
 .search-container {
-    flex: 1; /* Search container should grow to take available space */
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,7 +99,7 @@ body {
 }
 
 .search-field {
-    width: 200px; /* Adjust width as needed */
+    width: 200px;
     padding: 10px;
     font-size: 16px;
     border: 2px solid rgba(255, 255, 255, .2);
@@ -127,8 +127,8 @@ body {
 
 
 .sign-out .box {
-    padding: 15px 20px; /* Increase padding for the sign-out box */
-    white-space: nowrap; /* Prevent text from wrapping */
+    padding: 15px 20px;
+    white-space: nowrap;
 }
 
 .notifications {
@@ -150,7 +150,7 @@ body {
     position: absolute;
     top: 60px;
     left: 0;
-    width: 600px; /* Increased width */
+    width: 600px;
     max-height: 400px;
     overflow-y: auto;
     background-color: #fff;
@@ -179,7 +179,7 @@ body {
 .notifications-list li {
     padding: 10px;
     border-bottom: 1px solid #ccc;
-    word-wrap: break-word; /* Allow long text to wrap */
+    word-wrap: break-word;
 }
 
 .notifications-list li:last-child {

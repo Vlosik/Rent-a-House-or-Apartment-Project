@@ -1,4 +1,3 @@
-// ForgotPassword.js
 import React, { Component } from 'react';
 import './ForgotPassword.css';
 import { FaUser, FaLock } from "react-icons/fa";
