@@ -26,6 +26,8 @@ This website provides users with the opportunity to rent or purchase a house or 
 - **View All Users:** Admin can see all registered users along with their details.
 - **Receive Messages:** Admin receives messages from users regarding platform issues.
 
+![Use Case Diagram](diagram_usecase.PNG)
+
 ## Tech Stack
 
 - **Backend:** Spring Boot
@@ -33,6 +35,7 @@ This website provides users with the opportunity to rent or purchase a house or 
 - **Frontend:** React
 
 ![Database Diagram](new_database_diagram.PNG)
+![UML Diagram](diagramUML.png)
 
 Spring Boot is utilized for creating the backend services, providing an efficient and powerful way to build the application's API. MySQL is used as the database solution, offering reliable data storage and retrieval for both user and property information. React is used for building the frontend, providing a dynamic and responsive user interface.
 
